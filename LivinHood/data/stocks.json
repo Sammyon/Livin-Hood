@@ -1,0 +1,21 @@
+[
+    {
+        "stockCode": "TSLA",
+        "description": "tesla",
+        "CompanyId": 1,
+        "AdminId": 1
+    },
+    {
+        "stockCode": "AAPL",
+        "description": "apple",
+        "CompanyId": 2,
+        "AdminId": 1
+    },
+    {
+        "stockCode": "LNVGY",
+        "description": "lenovo",
+        "CompanyId": 3,
+        "AdminId": 2
+    }
+    
+]

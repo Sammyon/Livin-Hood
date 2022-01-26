@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Tesla, Inc.",
+        "companyLogo": "tesla.jpg",
+        "location": "America",
+        "email": "Press@tesla.com.",
+        "description": "tesla",
+        "AdminId": 1
+    },
+    {
+        "name": "Tesla, Inc.",
+        "companyLogo": "tesla.jpg",
+        "location": "America",
+        "email": "Press@tesla.com.",
+        "description": "tesla",
+        "AdminId": 1
+    },
+    {
+        "name": "Tesla, Inc.",
+        "companyLogo": "tesla.jpg",
+        "location": "America",
+        "email": "Press@tesla.com.",
+        "description": "tesla",
+        "AdminId": 1
+    },
+    {
+        "name": "Tesla, Inc.",
+        "companyLogo": "tesla.jpg",
+        "location": "America",
+        "email": "Press@tesla.com.",
+        "description": "tesla",
+        "AdminId": 1
+    },
+    {
+        "name": "Tesla, Inc.",
+        "companyLogo": "tesla.jpg",
+        "location": "America",
+        "email": "Press@tesla.com.",
+        "description": "tesla",
+        "AdminId": 1
+    }
+]

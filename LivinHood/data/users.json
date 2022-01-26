@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Alice",
+        "bankAccountNumber": "812128012",
+        "email": "alice@mail.com",
+        "password": "ecila",
+        "credit": 1000000
+    },
+    {
+        "name": "Hortensia",
+        "bankAccountNumber": "812128012",
+        "email": "horten@mail.com",
+        "password": "horten",
+        "credit": 1000000
+    },
+    {
+        "name": "Cecillia",
+        "bankAccountNumber": "812128012",
+        "email": "cecil@mail.com",
+        "password": "cecil",
+        "credit": 1000000
+        
+    }
+]
