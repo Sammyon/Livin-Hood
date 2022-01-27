@@ -16,6 +16,7 @@ router.post ('/login', Controller.login)
 
 router.use(function (req, res, next) {
   if (req.session.user || req.session.admin) {
+    console.log(req.session)
     next()
   } else {
     res.redirect('/login?error=Need Login')
@@ -23,11 +24,14 @@ router.use(function (req, res, next) {
 })
 
 
+
+
 // router.get ('/login', login) //LOGIN
 router.use ('/user', user)
-
+router.get ('/userProfile', Controller.main)
 router.use(function (req, res, next) {
   if (req.session.admin) {
+    console.log("masuk ke admin")
     next()
   } else {
     res.redirect('/login?error=Need to be Admin')

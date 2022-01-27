@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.haveMany(models.Portfolio)
+      User.hasMany(models.Portofolio, {foreignKey: "UserId"})
     }
   }
   User.init({
@@ -58,8 +58,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     isAdmin: {
       type: DataTypes.BOOLEAN,
+      allowNull:false,
       validate: {
-        notEmpty: {
+        notNull: {
           msg: 'isAdmin cannot be empty!'
         }
       }

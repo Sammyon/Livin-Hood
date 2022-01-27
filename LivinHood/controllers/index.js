@@ -14,12 +14,12 @@ class Controller {
   }
 
   static loginForm (req, res) {
-    res.render()
+    res.render('login')
   }
 
   static login (req, res) {
     const { error } = req.query
-    const {name, password, isAdmin} = req.body
+    const {name, password} = req.body
     User.findOne({
       where: {
         name: name
@@ -33,10 +33,10 @@ class Controller {
             let valid = bcrypt.compareSync(password, user.password)
             if (valid && user.isAdmin) {
               req.session.admin = user.id //! SESSION START
-              res.redirect('/')
+              res.redirect('/adminProfile')
             } else if (valid) {
               req.session.user = user.id //! SESSION START
-              res.redirect('/')
+              res.redirect('/userProfile')
             } else {
               throw new Error (`Wrong Password`)
             }
@@ -57,7 +57,7 @@ class Controller {
   }
 
   static formSignup (req, res) {
-    res.render('/register')
+    res.render('register')
   }
 
   static signup (req, res) {
@@ -82,9 +82,18 @@ class Controller {
   }
 
   static listPortfolio (req, res) {
-    Portfolio.findAll()
-      .then(data => {
-        res.render('path list portfolio', {data})
+    let data
+    Portfolio.findAll({include : {
+          model: Stock, Company,
+          where: {
+            userId : id
+          }
+
+    }})
+      .then(portfolios => {
+        data  = portfolios
+        console.log(data)
+        res.render('portfolio', {data})
       })
       .catch(err => {
         res.send(err)

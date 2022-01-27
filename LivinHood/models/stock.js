@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       //! MASUKKAN BELONGS TO 3 KALI??
-      Stock.belongsTo(models.Portofolio)
-      Stock.belongsTo(models.Company)
+      Stock.belongsTo(models.Portofolio, {foreignKey: "StockId"})
+      Stock.belongsTo(models.Company, {foreignKey: "StockId"})
     }
   }
   Stock.init({
