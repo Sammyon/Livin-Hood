@@ -1,5 +1,6 @@
 const {User, Portfolio, Stock, Company, Admin} = require ('../models')
 const bcrypt = require('bcryptjs')
+const session = require('express-session')
 
 //!! DUMMY CAN BE COPY PASTED
 
@@ -17,6 +18,7 @@ class Controller {
   }
 
   static login (req, res) {
+    const { error } = req.query
     const {name, password, isAdmin} = req.body
     User.findOne({
       where: {
@@ -24,15 +26,23 @@ class Controller {
       }
     })
       .then(user => {
-        if (user) {
-          let valid = bcrypt.compareSync(password, user.password)
-          if (valid) {
-            res.redirect('/')
-          } else {
-            throw new Error (`Wrong Password`)
-          }
+        if (error) {
+          throw new Error (error)
         } else {
-          throw new Error (`User not found`)
+          if (user) {
+            let valid = bcrypt.compareSync(password, user.password)
+            if (valid && user.isAdmin) {
+              req.session.admin = user.id //! SESSION START
+              res.redirect('/')
+            } else if (valid) {
+              req.session.user = user.id //! SESSION START
+              res.redirect('/')
+            } else {
+              throw new Error (`Wrong Password`)
+            }
+          } else {
+            throw new Error (`User not found`)
+          }
         }
       })
       .catch(err => {

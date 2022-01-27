@@ -7,20 +7,32 @@ const user = require('./user.js')
 const login = require('./login.js')
 
 
+
 router.get ('/', Controller.main)
 router.get ('/register', Controller.formSignup)
 router.post ('/register', Controller.signup)
 router.get ('/login', Controller.loginForm)
 router.post ('/login', Controller.login)
 
-router.use(function (res, req, next) {
-  if (condition) {
+router.use(function (req, res, next) {
+  if (req.session.user || req.session.admin) {
     next()
+  } else {
+    res.redirect('/login?error=Need Login')
   }
 })
 
+
 // router.get ('/login', login) //LOGIN
-router.use ('/admin', admin)
 router.use ('/user', user)
+
+router.use(function (req, res, next) {
+  if (req.session.admin) {
+    next()
+  } else {
+    res.redirect('/login?error=Need to be Admin')
+  }
+})
+router.use ('/admin', admin)
 
 module.exports = router
