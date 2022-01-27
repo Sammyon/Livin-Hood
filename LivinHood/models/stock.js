@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       //! MASUKKAN BELONGS TO 3 KALI??
-      Stock.belongsTo(models.Portofolio, {foreignKey: "StockId"})
-      Stock.belongsTo(models.Company, {foreignKey: "StockId"})
+       Stock.hasOne(models.Portofolio, {foreignKey: "StockId"})
+       Stock.belongsTo(models.Company, {foreignKey: "CompanyId"})
     }
   }
   Stock.init({
@@ -38,14 +38,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'CompanyId cannot be empty!'
-        }
-      }
-    },
-    PortfolioId: {
-      type: DataTypes.INTEGER,
-      validate: {
-        notEmpty: {
-          msg: 'PortfolioId cannot be empty!'
         }
       }
     },

@@ -8,23 +8,33 @@
 </head>
 
 <body>
-  <%= data %>
-  <table>
-    <tr>
-      <th>Amount</th>
-      <th>Investment Type</th>
-      <th>Price Bought</th>
-      <th>Buy Date</th>
-      <th>Stock Code</th>
-      <th>Company Name</th>
-      <th>Action</th>
-    </tr>
-    <tr>
-      <td>
-        
-      </td>
-    </tr>
-    
+  <h1>LIST PORTFOLIO</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Investment Type</th>
+        <th>Price Bought</th>
+        <th>Stock Code</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach(e => { %>
+        <% if (e.amount > 0) { %>
+          <tr>
+            <td><%= e.amount %></td>
+            <td><%= e.investmentType %></td>
+            <td><%= e.priceBought %></td>
+            <td><a href="/companies/<%= e.Stock.id %>"></a><%= e.Stock.stockCode %></td>
+            <td>
+              <a href="/stocks/<%= e.Stock.id %>/buy">Buy</a>
+              <a href="/stocks/<%= e.Stock.id %>/sell">Sell</a>
+            </td>
+          </tr>
+        <% } %>
+      <% }) %>
+    </tbody>
   </table>
 </body>
 </html>

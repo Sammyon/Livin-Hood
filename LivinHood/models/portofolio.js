@@ -12,18 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Portofolio.belongsTo(models.User, {foreignKey: "UserId"})
-      Portofolio.hasOne(models.Stock)
+      Portofolio.belongsTo(models.Stock, {foreignKey: "StockId"})
     }
   }
   Portofolio.init({
-    status: {
-      type: DataTypes.STRING,
-      validate: {
-        notEmpty: {
-          msg: 'status cannot be empty!'
-        }
-      }
-    },
+    
     amount: {
       type: DataTypes.INTEGER,
       validate: {
@@ -41,6 +34,14 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     priceBought: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'priceBought cannot be empty!'
+        }
+      }
+    },
+    StockId: {
       type: DataTypes.INTEGER,
       validate: {
         notEmpty: {

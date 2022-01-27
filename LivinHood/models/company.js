@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Company.hasOne(models.Stock)
+      Company.hasOne(models.Stock, {foreignKey: "CompanyId"})
     }
   }
   Company.init({

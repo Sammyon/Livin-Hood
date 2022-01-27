@@ -1,8 +1,8 @@
 const Controller = require ('../controllers')
 const express = require('express')
 const router = express.Router()
-const company = require('./company.js')
-const stock = require('./stock.js')
+const company = require('./companies.js')
+const stock = require('./stocks.js')
 
 // router.use ('/company', portfolio)
 

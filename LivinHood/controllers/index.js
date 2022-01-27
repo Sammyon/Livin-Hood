@@ -1,6 +1,8 @@
-const {User, Portfolio, Stock, Company, Admin} = require ('../models')
+const {User, Portofolio, Stock, Company, sequelize} = require ('../models')
 const bcrypt = require('bcryptjs')
+const { Op } = require("sequelize");
 const session = require('express-session')
+
 
 //!! DUMMY CAN BE COPY PASTED
 
@@ -31,12 +33,11 @@ class Controller {
         } else {
           if (user) {
             let valid = bcrypt.compareSync(password, user.password)
-            if (valid && user.isAdmin) {
-              req.session.admin = user.id //! SESSION START
-              res.redirect('/adminProfile')
-            } else if (valid) {
-              req.session.user = user.id //! SESSION START
-              res.redirect('/userProfile')
+            if (valid) {
+              req.session.UserId = user.id //! SESSION START
+              req.session.isAdmin = user.isAdmin
+              console.log(req.session);
+              res.redirect('/profile')
             } else {
               throw new Error (`Wrong Password`)
             }
@@ -82,42 +83,60 @@ class Controller {
   }
 
   static listPortfolio (req, res) {
-    let data
-    Portfolio.findAll({include : {
-          model: Stock, Company,
-          where: {
-            userId : id
-          }
-
-    }})
-      .then(portfolios => {
-        data  = portfolios
-        console.log(data)
-        res.render('portfolio', {data})
+    let {UserId} = req.session
+    Portofolio.findAll({
+      include:{
+        model: Stock
+      },
+      where : {
+        UserId : UserId
+      }
+    })
+      .then(data => {
+        res.render('portfolio', { data })
       })
       .catch(err => {
         res.send(err)
+        // console.log(err)
       })
   }
 
   static listCompany (req, res) {
+    const isAdmin = req.session.isAdmin
     Company.findAll()
+        .then(data => {
+          res.render('companies', {data, isAdmin})
+        })
+        .catch(err => {
+          res.send(err)
+        })
+  }
+
+  static listStock (req, res) {
+    const isAdmin = req.session.isAdmin
+    Stock.findAll({
+      include: {
+        model: Company
+      } 
+    })
       .then(data => {
-        res.render('path list company', {data})
+        res.render('stocks', {data, isAdmin})
       })
       .catch(err => {
         res.send(err)
       })
   }
 
-  static listStock (req, res) {
-    Stock.findAll()
-      .then(data => {
-        res.render('path list stock', {data})
-      })
-      .catch(err => {
-        res.send(err)
-      })
+
+  static profile (req, res) {
+    let {UserId} = req.params
+
+    User.findByPk(UserId) 
+    
+    .then(data=>{
+      console.log(data)
+      res.render('profile', {data})
+    })
   }
 
   
