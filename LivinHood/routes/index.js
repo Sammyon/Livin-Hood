@@ -7,7 +7,16 @@ const login = require('./login.js')
 
 
 router.get ('/', Controller.main)
-router.get ('/login', login) //LOGIN
+router.get ('/register', Controller.formSignup)
+router.post ('/register', Controller.signup)
+router.get ('/login', Controller.loginForm)
+router.post ('/login', Controller.login)
+
+router.use(function (res, req, next) {
+
+})
+
+// router.get ('/login', login) //LOGIN
 router.use ('/admin', admin)
 router.use ('/user', user)
 

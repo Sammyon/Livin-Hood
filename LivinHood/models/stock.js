@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       //! MASUKKAN BELONGS TO 3 KALI??
       Stock.belongsTo(models.Portofolio)
       Stock.belongsTo(models.Company)
-      Stock.belongsTo(models.Admin)
     }
   }
   Stock.init({
@@ -39,14 +38,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'CompanyId cannot be empty!'
-        }
-      }
-    },
-    AdminId: {
-      type: DataTypes.INTEGER,
-      validate: {
-        notEmpty: {
-          msg: 'AdminId cannot be empty!'
         }
       }
     },

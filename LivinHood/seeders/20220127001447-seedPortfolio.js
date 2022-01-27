@@ -1,15 +1,12 @@
 'use strict';
 const fs = require('fs')
 module.exports = {
-   up (queryInterface, Sequelize) {
+  up (queryInterface, Sequelize) {
     let data =  JSON.parse(fs.readFileSync('./data/portofolios.json'))
-    console.log(data)
-    data.map(el => {
+    data.forEach(el => {
       el.createdAt = new Date()
       el.updatedAt = new Date()
-      return el
     })
-    console.log(data, '<<<<<<<<< data')
     return queryInterface.bulkInsert("Portofolios", data)
     /**
      * Add seed commands here.
@@ -22,7 +19,7 @@ module.exports = {
     */
   },
 
-   down (queryInterface, Sequelize) {
+  down (queryInterface, Sequelize) {
     return queryInterface.bulkDelete("Portofolios", null)
     /**
      * Add commands to revert seed here.

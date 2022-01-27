@@ -4,39 +4,34 @@
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
-        "description": "tesla",
-        "AdminId": 1
+        "description": "tesla"
     },
     {
         "name": "Tesla, Inc.2",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
-        "description": "tesla",
-        "AdminId": 1
+        "description": "tesla"
     },
     {
         "name": "Tesla, Inc.3",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
-        "description": "tesla",
-        "AdminId": 1
+        "description": "tesla"
     },
     {
         "name": "Tesla, Inc.4",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
-        "description": "tesla",
-        "AdminId": 1
+        "description": "tesla"
     },
     {
         "name": "Tesla, Inc.5",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
-        "description": "tesla",
-        "AdminId": 1
+        "description": "tesla"
     }
 ]

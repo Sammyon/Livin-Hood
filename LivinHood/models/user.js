@@ -1,4 +1,5 @@
 'use strict';
+const bcrypt = require('bcryptjs')
 const {
   Model
 } = require('sequelize');
@@ -54,10 +55,22 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'credit cannot be empty!'
         }
       }
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      validate: {
+        notEmpty: {
+          msg: 'isAdmin cannot be empty!'
+        }
+      }
     }
   }, {
     hooks: {
-
+      beforeCreate: (data) => {
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(data.password, salt)
+        data.password = hash
+      }
     },
     sequelize,
     modelName: 'User',

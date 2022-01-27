@@ -7,7 +7,6 @@
         "priceBought": 300,
         "UserId": 1,
         "StockId": 1
-        
     },
     {
        
@@ -17,7 +16,6 @@
         "priceBought": 100,
         "UserId": 2,
         "StockId": 2
-        
     },
     {
        
@@ -27,6 +25,5 @@
         "priceBought": 150,
         "UserId": 3,
         "StockId": 3
-        
     }
 ]

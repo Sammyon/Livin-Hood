@@ -2,31 +2,26 @@
     {
         "stockCode": "TSLA",
         "description": "tesla",
-        "CompanyId": 1,
-        "AdminId": 1
+        "CompanyId": 1
     },
     {
         "stockCode": "AAPL",
         "description": "apple",
-        "CompanyId": 2,
-        "AdminId": 1
+        "CompanyId": 2
     },
     {
         "stockCode": "LNVGY",
         "description": "lenovo",
-        "CompanyId": 3,
-        "AdminId": 2
+        "CompanyId": 3
     },
     {
         "stockCode": "AAPL2",
         "description": "apple",
-        "CompanyId": 4,
-        "AdminId": 1
+        "CompanyId": 4
     },
     {
         "stockCode": "AAPL3",
         "description": "apple",
-        "CompanyId": 5,
-        "AdminId": 1
+        "CompanyId": 5
     }
 ]

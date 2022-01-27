@@ -23,15 +23,6 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      AdminId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Admins',
-          key: 'id'
-        },
-      onUpdate: 'cascade',
-      onDelete: 'cascade'
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

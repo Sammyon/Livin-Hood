@@ -3,13 +3,10 @@ const fs = require('fs')
 module.exports = {
    up (queryInterface, Sequelize) {
     let data =  JSON.parse(fs.readFileSync('./data/stocks.json'))
-    console.log(data)
-    data.map(el => {
+    data.forEach(el => {
       el.createdAt = new Date()
       el.updatedAt = new Date()
-      return el
     })
-    console.log(data, '<<<<<<<<< data')
     return queryInterface.bulkInsert("Stocks", data)
     /**
      * Add seed commands here.
@@ -22,7 +19,7 @@ module.exports = {
     */
   },
 
-  async down (queryInterface, Sequelize) {
+  down (queryInterface, Sequelize) {
     return queryInterface.bulkDelete("Stocks", null)
     /**
     /**

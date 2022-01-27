@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Company.hasOne(models.Stock)
-      Company.belongsTo(models.Admin)
     }
   }
   Company.init({
@@ -53,14 +52,6 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'description cannot be empty!'
-        }
-      }
-    },
-    AdminId: {
-      type: DataTypes.INTEGER,
-      validate: {
-        notEmpty: {
-          msg: 'AdminId cannot be empty!'
         }
       }
     }

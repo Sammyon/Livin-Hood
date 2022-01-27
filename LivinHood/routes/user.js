@@ -4,9 +4,9 @@ const router = express.Router()
 const portfolio = require('./portfolio.js')
 
 router.get ('/', Controller.main) // LIST USER
-router.get ('/:UserId', Controller.UserId) // USER PROFILE
-router.get ('/:UserId/listCompany', Controller.addFormEmployee) // 
-router.post ('/:UserId/employees/add', Controller.addEmployee) // 
+router.get ('/:UserId', Controller.main) // USER PROFILE
+router.get ('/:UserId/listCompany', Controller.main) // 
+router.post ('/:UserId/employees/add', Controller.main) // 
 // router.get ('/:UserId/employees/:employeeId/edit', Controller.formEditEmployee) // 
 // router.post ('/:UserId/employees/:employeeId/edit', Controller.editEmployee) // 
 // router.get ('/:UserId/employees/:employeeId/delete', Controller.delEmployee) // 
