@@ -14,10 +14,34 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Admin.init({
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'name cannot be empty!'
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'email cannot be empty!'
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'password cannot be empty!'
+        }
+      }
+    }
   }, {
+    hooks: {
+
+    },
     sequelize,
     modelName: 'Admin',
   });

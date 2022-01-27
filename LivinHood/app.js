@@ -12,5 +12,4 @@ app.use('/', route)
 
 app.listen(port, () => {
   console.log(`Listening to port ${port}!`);
-}) 
-
+})

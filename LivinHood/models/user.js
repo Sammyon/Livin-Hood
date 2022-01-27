@@ -11,16 +11,54 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.haveMany(models.Portfolio)
     }
   }
   User.init({
-    name: DataTypes.STRING,
-    bankAccountNumber: DataTypes.INTEGER,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    credit: DataTypes.INTEGER,
-    portofolioId : DataTypes.INTEGER
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'name cannot be empty!'
+        }
+      }
+    },
+    bankAccountNumber: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'bankAccountNumber cannot be empty!'
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'email cannot be empty!'
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'password cannot be empty!'
+        }
+      }
+    },
+    credit: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'credit cannot be empty!'
+        }
+      }
+    }
   }, {
+    hooks: {
+
+    },
     sequelize,
     modelName: 'User',
   });

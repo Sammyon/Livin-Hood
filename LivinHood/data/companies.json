@@ -1,6 +1,6 @@
 [
     {
-        "name": "Tesla, Inc.",
+        "name": "Tesla, Inc.1",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
@@ -8,7 +8,7 @@
         "AdminId": 1
     },
     {
-        "name": "Tesla, Inc.",
+        "name": "Tesla, Inc.2",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
@@ -16,7 +16,7 @@
         "AdminId": 1
     },
     {
-        "name": "Tesla, Inc.",
+        "name": "Tesla, Inc.3",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
@@ -24,7 +24,7 @@
         "AdminId": 1
     },
     {
-        "name": "Tesla, Inc.",
+        "name": "Tesla, Inc.4",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",
@@ -32,7 +32,7 @@
         "AdminId": 1
     },
     {
-        "name": "Tesla, Inc.",
+        "name": "Tesla, Inc.5",
         "companyLogo": "tesla.jpg",
         "location": "America",
         "email": "Press@tesla.com.",

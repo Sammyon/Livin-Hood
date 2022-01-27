@@ -11,16 +11,63 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Company.hasOne(models.Stock)
+      Company.belongsTo(models.Admin)
     }
   }
   Company.init({
-    name: DataTypes.STRING,
-    companyLogo: DataTypes.STRING,
-    location: DataTypes.STRING,
-    email: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    AdminId: DataTypes.INTEGER
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'name cannot be empty!'
+        }
+      }
+    },
+    companyLogo: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'companyLogo cannot be empty!'
+        }
+      }
+    },
+    location: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'location cannot be empty!'
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'email cannot be empty!'
+        }
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      validate: {
+        notEmpty: {
+          msg: 'description cannot be empty!'
+        }
+      }
+    },
+    AdminId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'AdminId cannot be empty!'
+        }
+      }
+    }
   }, {
+    hooks: {
+
+    },
     sequelize,
     modelName: 'Company',
   });

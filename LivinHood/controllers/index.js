@@ -1,16 +1,14 @@
-const {} = require ('../models')
-const { Model } = require('sequelize/dist')
 const {User, Portfolio, Stock, Company, Admin} = require ('../models')
 
 //!! DUMMY CAN BE COPY PASTED
 
 class Controller {
-  static portfolio (req, res) {
-
+  static landing (req, res) {
+    res.render('landing')
   }
 
   static login (req, res) {
-
+    res.render()
   }
 
   static signup (req, res) {
@@ -21,13 +19,35 @@ class Controller {
 
   }
 
-  static dummy (req, res) {
-    Model.findAll()
+  static listPortfolio (req, res) {
+    Portfolio.findAll()
       .then(data => {
-        res.render('path ejs', {data})
+        res.render('path list portfolio', {data})
       })
       .catch(err => {
         res.send(err)
       })
   }
+
+  static listCompany (req, res) {
+    Company.findAll()
+      .then(data => {
+        res.render('path list company', {data})
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+
+  static listStock (req, res) {
+    Stock.findAll()
+      .then(data => {
+        res.render('path list stock', {data})
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+
+  
 }

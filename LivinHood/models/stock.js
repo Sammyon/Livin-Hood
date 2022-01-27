@@ -11,14 +11,57 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //! MASUKKAN BELONGS TO 3 KALI??
+      Stock.belongsTo(models.Portofolio)
+      Stock.belongsTo(models.Company)
+      Stock.belongsTo(models.Admin)
     }
   }
   Stock.init({
-    stockCode: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    companyId: DataTypes.INTEGER,
-    adminId: DataTypes.INTEGER
+    stockCode: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'stockCode cannot be empty!'
+        }
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      validate: {
+        notEmpty: {
+          msg: 'description cannot be empty!'
+        }
+      }
+    },
+    CompanyId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'CompanyId cannot be empty!'
+        }
+      }
+    },
+    AdminId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'AdminId cannot be empty!'
+        }
+      }
+    },
+    PortfolioId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'PortfolioId cannot be empty!'
+        }
+      }
+    },
   }, {
+    hooks: {
+      
+    },
     sequelize,
     modelName: 'Stock',
   });

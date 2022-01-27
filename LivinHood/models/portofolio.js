@@ -11,15 +11,55 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Portofolio.belongsTo(models.User)
+      Portofolio.hasOne(models.Stock)
     }
   }
   Portofolio.init({
-    status: DataTypes.STRING,
-    amount: DataTypes.INTEGER,
-    investmentType: DataTypes.STRING,
-    priceBrought: DataTypes.INTEGER,
-    UsersId: DataTypes.INTEGER
+    status: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'status cannot be empty!'
+        }
+      }
+    },
+    amount: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'amount cannot be empty!'
+        }
+      }
+    },
+    investmentType: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'investmentType cannot be empty!'
+        }
+      }
+    },
+    priceBought: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'priceBought cannot be empty!'
+        }
+      }
+    },
+    UserId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: {
+          msg: 'UserId cannot be empty!'
+        }
+      }
+    }
   }, {
+    hooks: {
+      
+    },
     sequelize,
     modelName: 'Portofolio',
   });
